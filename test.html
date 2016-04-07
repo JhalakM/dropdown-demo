@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bootstrap-select test page</title>
+  <meta charset="utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/bootstrap-select.css">
+  <link rel="stylesheet" href="css/jquery.jscrollpane.css">
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-select.js"></script>
+  <!--<script src="js/bootstrap-typeahead.js"></script>-->
+  <script src="js/jquery.jscrollpane.min.js"></script>
+  <script src="js/jquery.mousewheel.js"></script>
+  <style>
+    body {
+      padding-top: 70px;
+    }
+	.bootstrap-select { width:50% !important; margin:0 25px !important; }
+  </style>
+
+</head>
+<body>
+<select id="country" name="country" class="form-control selectpicker" title="test">
+          <option value="1">Argentina1</option>
+          <option value="2">Argentina2</option>
+          <option value="3">Argentina3</option>
+		  <option value="4">Argentina4</option>
+		  <option value="5">Argentina5</option>
+		  <option value="6">Argentina6</option>
+		  <option value="7">Argentina7</option>
+		  <option value="8">Argentina8</option>
+		  <option value="9">Argentina9</option>
+		  <option value="10">Argentina10</option>
+		  <option value="11">Argentina11</option>
+</select>
+<script>
+$(document).ready(function () {
+    $(document).delegate(".dropdown-toggle","click",function(){
+		var jDropdown = $(this).siblings(".dropdown-menu").find("ul.dropdown-menu");
+		jDropdown.jScrollPane();
+	});
+	$(document).delegate(".selectpicker","change",function(){
+		$(this).find("option:selected").remove();
+		$(this).selectpicker("refresh");
+	});
+});
+</script>
+</body>
+</html>
